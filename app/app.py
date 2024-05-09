@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 import json
+from wtforms.fields import RadioField
 
 
 app = Flask(__name__)
@@ -127,13 +128,15 @@ def menu_administrador():
 @app.route('/create_admin_manager', methods= ['GET', 'POST'])
 def create_admin_manager():
     if request.method == 'GET':
-        return render_template('create_admin_manager.html', administrador={})
-    elif request.method == 'POST':
-        if len(administrador) == 0:
+        return render_template('create_admin_manager.html', administrador={} , manager={})
+    if request.method == 'POST':
+        
+        administrador={}
+        if administrador.count() == 0:
             numero_admin = 1
             id_administrador = "UA" + str(numero_admin)
         else:
-            numero_admin = len(administrador) +1
+            numero_admin = administrador.count() +1
             id_administrador = "UA" + str(numero_admin)
         nombre_administrador = request.form["nombre"]
         apellido_1_administrador = request.form["apellido_1"]
@@ -149,17 +152,69 @@ def create_admin_manager():
                               "apellido_2_administrador": apellido_2_administrador, "telefono_administrador": telefono_administrador, "email_administrador": email_administrador,
                               "horas_semanales_administrador": horas_semanales_administrador, "coste_hora_administrador": coste_hora_administrador,
                               "puesto_trabajo_administrador": puesto_trabajo_administrador, "contador_tareas_administrador": 0, "contador_proyectos_administrador": 0})
-        with open(data_usuarios_administrador,"w") as ua
+        with open(data_usuarios_administrador,"w") as ua:
             json.dump(administrador,ua)
-        return redirect(url_for('index'))
+        return redirect(url_for('menu_admin'))
+
+        manager = {}
+        if manager.count() == 0:
+            numero_manager = 1
+            id_manager = "UM" + str(numero_admin)
+        else:
+            numero_manager = manager.count() +1
+            id_manager = "UA" + str(numero_admin)
+        nombre_manager = request.form["nombre"]
+        apellido_1_manager = request.form["apellido_1"]
+        apellido_2_manager = request.form["apellido_2"]
+        telefono_manager = request.form["telefono"]
+        email_manager = request.form["email"]
+        horas_semanales_manager = request.form["horas_semanales"]
+        coste_hora_manager = request.form["coste_hora"]
+        puesto_trabajo_manager = request.form["puesto_trabajo"]
+        with open(data_usuarios_manager, 'r+') as um:
+            manager = json.load(um)
+        manager.append({"id_manager": id_manager, "nombre_manager": nombre_manager, "apellido_1_manager": apellido_1_manager,
+                              "apellido_2_manger": apellido_2_manger, "telefono_manager": telefono_manager, "email_manager": email_manager,
+                              "horas_semanales_manager": horas_semanales_manager, "coste_hora_manager": coste_hora_manger,
+                              "puesto_trabajo_manager": puesto_trabajo_manager, "contador_tareas_manager": 0, "contador_proyectos_manager": 0})
+        with open(data_usuarios_manager,"w") as um:
+            json.dump(manager,um)
+        return redirect(url_for('menu_admin'))
         nombre_usuario = request.form["nombre_usuario"]
         contrasena_usuario = request.form["contrasena"]
-        tipo_usuario = ""
-        
-        
+        tipo_usuario = "manager"
+      
 
 
-
+@app.route('/create_worker', methods= ['GET', 'POST'])
+def create_worker():
+    if request.method == 'GET':
+        return render_template('create_worker.html', worker={})
+    if request.method == 'POST':
+        worker = {}
+        if worker.count() == 0:
+            numero_worker = 1
+            id_worker = "UW" + str(numero_worker)
+        else:
+            numero_worker = worker.count() +1
+            id_worker = "UW" + str(numero_worker)
+        nombre_worker = request.form["nombre"]
+        apellido_1_worker = request.form["apellido_1"]
+        apellido_2_worker = request.form["apellido_2"]
+        telefono_worker= request.form["telefono"]
+        email_worker = request.form["email"]
+        horas_semanales_worker = request.form["horas_semanales"]
+        coste_hora_worker = request.form["coste_hora"]
+        puesto_trabajo_worker = request.form["puesto_trabajo"]
+        with open(data_usuarios_worker, 'r+') as uw:
+            worker = json.load(uw)
+        worker.append({"id_worker": id_worker, "nombre_worker": nombre_worker, "apellido_1_worker": apellido_1_worker,
+                              "apellido_2_worker": apellido_2_worker, "telefono_worker": telefono_worker, "email_worker": email_worker,
+                              "horas_semanales_worker": horas_semanales_worker, "coste_hora_worker": coste_hora_worker,
+                              "puesto_trabajo_worker": puesto_trabajo_worker, "contador_tareas_worker": 0, "contador_proyectos_worker": 0})
+        with open(data_usuarios_worker,"w") as uw:
+            json.dump(worker,uw)
+        return redirect(url_for('menu_manager_empleados'))
 
 
 
