@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Tareas</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="static/css/index.css">
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container-fluid vh-85 d-flex flex-column justify-content-center align-items-center">
+        <!-- Bloque 1: Vista de Horario por Horas -->
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <h2>Vista Horario por Horas</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Tabla para la vista de horario por horas -->
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Lunes</th>
+                            <th scope="col">Martes</th>
+                            <th scope="col">Miércoles</th>
+                            <th scope="col">Jueves</th>
+                            <th scope="col">Viernes</th>
+                            <th scope="col">Sábado</th>
+                            <th scope="col">Domingo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de horas (de 8:00 a 20:00) -->
+                        <!-- Repetir para cada hora -->
+                        <tr>
+                            <th scope="row">8:00</th>
+                            <td>Tarea 1</td>
+                            <td></td>
+                            <td>Tarea 2</td>
+                            <td></td>
+                            <td></td>
+                            <td>Tarea 3</td>
+                            <td></td>
+                        </tr>
+                        <!-- Repetir para más filas de horas -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Bloque 2: Vista Mensual -->
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <h2>Vista Mensual</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <!-- Calendario mensual -->
+                <!-- Incluir calendario mensual aquí -->
+            </div>
+        </div>
+        
+        <!-- Botón para salir -->
+        <div class="row mt-4">
+            <div class="col-md-12 text-end">
+                <a href="#" class="btn btn-warning">Salir</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace a Bootstrap JS (necesario para funcionalidades de Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Enlace a Font Awesome (necesario para iconos) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>

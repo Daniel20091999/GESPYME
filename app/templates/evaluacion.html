@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación del Desempeño - Gestión de Recursos Humanos</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="static/css/evaluacion.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="evaluation-block">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>EVALUACIÓN DEL DESEMPEÑO</h2>
+                    <p>Evalúa cada punto de la siguiente manera:</p>
+                    <ol>
+                        <li>Mal</li>
+                        <li>Bajo</li>
+                        <li>Aceptable</li>
+                        <li>Bien</li>
+                        <li>Excelente</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- Tabla A: Capacidad para la Resolución -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Tabla A. Capacidad para la Resolución</h3>
+                    <table class="table table-bordered evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Criterio</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. Identifica problemáticas antes de que se generen.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>2. Presenta alternativas para la resolución del conflicto.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>3. Propone soluciones eficientes.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>4. Resuelve asignaciones y retos con creatividad.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>5. Sugiere nuevas soluciones a problemas ya detectados.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Evaluación total sobre la capacidad para la resolución de problemas:</td>
+                                <td><input type="text" class="form-control" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Tabla B: Habilidades Comunicativas -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Tabla B. Habilidades Comunicativas</h3>
+                    <table class="table table-bordered evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Criterio</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. Tiene una actitud profesional en torno a su cargo laboral.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>2. Posee un trato afable con sus compañeros de equipo.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>3. Es amable en la relación con sus compañeros.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>4. Es cortés y cordial en el trato con personas en todas las áreas en las que se encuentra.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>5. Es respetuoso y amigable con cada miembro de la empresa.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Evaluación total sobre sus habilidades comunicativas:</td>
+                                <td><input type="text" class="form-control" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Tabla C: Características en el Trabajo Individual -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Tabla C. Características en el Trabajo Individual</h3>
+                    <table class="table table-bordered evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Criterio</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. Se desarrolla proactivamente en su entorno laboral.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>2. Cumple cabalmente con las tareas asignadas.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>3. Participa brindando ideas a sus compañeros y superiores.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>4. Es consciente de su rol dentro de la organización.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>5. Ha propuesto cambios para mejorar su eficacia.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Evaluación total sobre sus características del trabajo:</td>
+                                <td><input type="text" class="form-control" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Tabla D: Características en el Trabajo Colectivo -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Tabla D. Características en el Trabajo Colectivo</h3>
+                    <table class="table table-bordered evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Criterio</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. Se ha integrado con soltura en su área laboral.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>2. Forma parte de equipos de trabajo especiales.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>3. Su trabajo armoniza con el organigrama establecido.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>4. Lleva a cabo los objetivos de su departamento.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>5. Contribuye a la consumación de metas grupales.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Evaluación total sobre sus características grupales:</td>
+                                <td><input type="text" class="form-control" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Tabla E: Eficiencia y Eficacia Profesional -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Tabla E. Eficiencia y Eficacia Profesional</h3>
+                    <table class="table table-bordered evaluation-table">
+                        <thead>
+                            <tr>
+                                <th>Criterio</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. Trabaja de acuerdo con el horario laboral establecido.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>2. Responde a las exigencias propias de su departamento.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>3. Emplea indicadores que respaldan su desempeño laboral.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>4. Responde positivamente a las metas asignadas.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>5. Su trabajo se ajusta al cronograma de actividades.</td>
+                                <td><input type="number" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>Evaluación total sobre su eficiencia y eficacia profesional:</td>
+                                <td><input type="text" class="form-control" readonly></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Tabla E: Eficiencia y Eficacia Profesional -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>PUNTUACIÓN DE LA EVALUACIÓN DE DESEMPEÑO</h3>
+                    <table class="table table-bordered evaluation-table">
+                        <input type="number" class="form-control">
+                    </table>
+                </div>
+            </div>
+
+            <!-- Botones de guardar y salir -->
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button type="button" class="btn btn-save">Guardar</button>
+                    <button type="button" class="btn btn-exit">Salir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace a Bootstrap JS (necesario para funcionalidades de Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

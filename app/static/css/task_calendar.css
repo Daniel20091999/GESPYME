@@ -7,22 +7,29 @@ body {
     align-items: center;
 }
 
-.card {
-    border: none;
+.container-fluid.vh-85 {
+    width: 85%;
+    height: 85vh;
+    padding: 20px;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    width: 100%;
 }
 
 .btn-primary {
     background-color: #af13bd;
     border-color: #af13bd;
-    width: 100%; /* Asegura que los botones ocupen toda la anchura */
-    margin-bottom: 10px; /* Añade espacio entre los botones */
-    padding: 10px; /* Ajusta el relleno interior de los botones */
-    color: #fff; /* Color de texto blanco */
 }
 
 .btn-primary:hover {
     background-color: #e69500;
     border-color: #e69500;
+}
+
+.btn-warning {
+    padding: 10px 20px;
 }
