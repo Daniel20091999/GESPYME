@@ -7,10 +7,17 @@ body {
     align-items: center;
 }
 
-.card {
-    border: none;
+.container-fluid.vh-85 {
+    width: 85%;
+    height: 85vh;
+    padding: 20px;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    width: 100%;
 }
 
 .btn-primary {
@@ -23,6 +30,6 @@ body {
     border-color: #e69500;
 }
 
-img{
-    padding: 50px; 
-  }
+.btn-warning {
+    padding: 10px 20px;
+}

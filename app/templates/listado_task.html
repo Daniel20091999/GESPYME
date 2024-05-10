@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Tareas</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="static/css/crud_task.css">
+</head>
+<body>
+    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+        <div class="container">
+            <!-- Encabezado -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2 class="mb-4">TODOS LAS TAREAS</h2>
+                    <div class="mb-4">
+                        <h4>Tareas Iniciadas</h4>
+                        <ul>
+                            <li>Tarea A</li>
+                            <li>Tarea B</li>
+                            <li>Tarea C</li>
+                        </ul>
+                        <p>Total Iniciados: <input type="text" class="form-control" readonly></p>
+                    </div>
+                    <div>
+                        <h4>Tareas Finalizadas</h4>
+                        <ul>
+                            <li>Tarea X</li>
+                            <li>Tarea Y</li>
+                            <li>Tarea Z</li>
+                        </ul>
+                        <p>Total Finalizados: <input type="text" class="form-control" readonly></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Salir -->
+            <div class="row">
+                <div class="col-md-12 text-end">
+                    <button type="button" class="btn btn-warning">Salir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace a Bootstrap JS (necesario para funcionalidades de Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

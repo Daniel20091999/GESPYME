@@ -9,7 +9,7 @@ body {
 
 .container-fluid.vh-85 {
     width: 85%; /* Establece el ancho del contenedor al 85% del ancho de la vista */
-    height: 85vh; /* Establece la altura del contenedor al 85% de la altura visible */
+    height: 85%; /* Establece la altura del contenedor al 85% de la altura visible */
     padding: 20px; /* Añade un relleno interior al contenedor */
     background-color: #ffffff; /* Color de fondo blanco para el contenedor */
     border-radius: 10px; /* Agrega bordes redondeados al contenedor */
