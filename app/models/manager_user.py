@@ -77,16 +77,21 @@ class Manager_User:
         else:
             print("Estos son los managers actualmente")
             #Creamos un bucle para que el usuario pueda ver todos los managers
-            Manager_User.mostrar_datos_managers()
-            id_a_borrar = str(input("Introduce el ID del manager que desea eliminar: "))
-            #Creamos un bucle para comprobar el id que deseamos eliminar
-            for manager in Manager_User.lista_managers:
-                if manager.id_manager == id_a_borrar.upper():
-                    Manager_User.lista_managers.remove(manager)
-                    print("El manager " + str(manager.nombre_manager) + " ha sido eliminado correctamente")
-                    break
+            Manager_User.mostrar_managers()
+            while True:
+                id_a_borrar = str(input("Introduce el ID del manager que desea eliminar o cancelar para volver al menu: "))
+                if id_a_borrar.lower() != "cancelar":
+                    #Creamos un bucle para comprobar el id que deseamos eliminar
+                    for manager in Manager_User.lista_managers:
+                        if manager.id_manager == id_a_borrar.upper():
+                            Manager_User.lista_managers.remove(manager)
+                            print("El manager " + str(manager.nombre_manager) + " ha sido eliminado correctamente")
+                            break
+                        else:
+                            print("No existe un manager con el ID introducido")
+                            break
                 else:
-                    print("No existe un manager con el ID introducido")
+                    print("Volviendo al menu principal")
                     break
 
     #Definimos un metodo que permita modificar un usuario manager en funcion de su id
@@ -195,6 +200,7 @@ class Manager_User:
                             print("Cancelando")
                             break     
 
+    
 #definimos un manager nuevo y lo añadimos a la lista
-manager1 =  Manager_User("UM1","Daniel", "Garcia", "Muñoz", 123456789, "daniel@gmail.com",40 ,8.50,0,0, "Manager")
+manager1 =  Manager_User("UM1","Antonio", "Sol", "Muñoz", 123456789, "antonio@gmail.com",40 ,8.50,0,0, "Manager de equipo")
 Manager_User.lista_managers.append(manager1)

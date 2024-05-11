@@ -221,26 +221,43 @@ class Usuario:
     @classmethod
     def recuperar_contraseña(cls):
         email_usuario = str(input("Por favor introduce el email para mandarle las instrucciones para recuperar su contraseña: "))
-        for worker in Worker_User.lista_workers:
-            if worker.email_worker == email_usuario:
-                print("Se ha enviado un email a la dirección indicada con las instrucciones para recuperar su contraseña")
-            else:
-                for manager in Manager_User.lista_managers:
-                    if manager.email_manager == email_usuario:
-                        print("Se ha enviado un email a la dirección indicada con las instrucciones para recuperar su contraseña")
-                    else:
-                        for administrador in Administrador_User.lista_administradores:
-                            if administrador.email_administrador == email_usuario:
-                                print("Se ha enviado un email a la dirección indicada con las instrucciones para recuperar su contraseña")
-                else:
-                    print("No existe ningun usuario con ese email, por favor pruebe otra cuenta")
-            
-                #Definimos una funcion que limpie la pantalla
+        if cls.comprobar_email_admin(email_usuario) == False and cls.comprobar_email_manager(email_usuario) == False and cls.comprobar_email_worker(email_usuario) == False:
+            print("No exixte ningun usuario con ese email, por favor pruebe con otra cuenta")
+    
+    #Definimos una funcion que limpie la pantalla
     @classmethod
     def limpiar_pantalla(cls):
         os.system('cls' if os.name=='nt' else 'clear')
         
-           
+    #creamos un metodo para comprobar si hay algún worker con el email introducido
+    @classmethod
+    def comprobar_email_worker(cls, email):
+        for administrador in Administrador_User.lista_administradores:
+            if administrador.email_administrador == email:
+                print("Se ha enviado un email a la dirección indicada con las instrucciones para recuperar su contraseña")
+                return True
+            else:
+                return False  
+
+    #creamos un metodo para comprobar si hay algún admin con el email introducido
+    @classmethod
+    def comprobar_email_admin(cls, email):
+        for administrador in Administrador_User.lista_administradores:
+            if administrador.email_administrador == email:
+                print("Se ha enviado un email a la dirección indicada con las instrucciones para recuperar su contraseña")
+                return True
+            else:
+                return False  
+
+    #creamos un metodo para comprobar si hay algún manager con el email introducido
+    @classmethod
+    def comprobar_email_manager(cls, email):
+        for manager in Manager_User.lista_managers:
+            if manager.email_manager == email:
+                print("Se ha enviado un email a la dirección indicada con las instrucciones para recuperar su contraseña")
+                return True
+            else:
+                return False
 
 
 class Menu:
@@ -492,5 +509,9 @@ class Menu:
         os.system('cls' if os.name=='nt' else 'clear')
         
     #definimos un objeto de tipo usuario y lo añadimos a la lista
-    usuario1 = Usuario("U1", "daniel", "daniel", "administrador","UA1")
-    Usuario.lista_usuarios.append(usuario1)  
+    usuario1 = Usuario("U1", "admin", "admin", "administrador","UA1")
+    usuario2 = Usuario("U2", "manager", "manager", "manager","UM1")
+    usuario3 = Usuario("U3", "worker", "worker", "worker","UW1")
+    Usuario.lista_usuarios.append(usuario1)
+    Usuario.lista_usuarios.append(usuario2)
+    Usuario.lista_usuarios.append(usuario3)
