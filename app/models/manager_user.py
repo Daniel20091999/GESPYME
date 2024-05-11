@@ -78,16 +78,19 @@ class Manager_User:
             print("Estos son los managers actualmente")
             #Creamos un bucle para que el usuario pueda ver todos los managers
             Manager_User.mostrar_managers()
-            id_a_borrar = str(input("Introduce el ID del manager que desea eliminar: "))
+            id_a_borrar = str(input("Introduce el ID del manager que desea eliminar o cancelar para volver al menu: "))
             #Creamos un bucle para comprobar el id que deseamos eliminar
-            for manager in Manager_User.lista_managers:
-                if manager.id_manager == id_a_borrar.upper():
-                    Manager_User.lista_managers.remove(manager)
-                    print("El manager " + str(manager.nombre_manager) + " ha sido eliminado correctamente")
-                    break
-                else:
-                    print("No existe un manager con el ID introducido")
-                    break
+            if id_a_borrar.lower() != "cancelar":
+                for manager in Manager_User.lista_managers:
+                    if manager.id_manager == id_a_borrar.upper():
+                        Manager_User.lista_managers.remove(manager)
+                        print("El manager " + str(manager.nombre_manager) + " ha sido eliminado correctamente")
+                        break
+                    else:
+                        print("No existe un manager con el ID introducido")
+                        break
+            else:
+                print("Volviendo al menu principal")
 
     #Definimos un metodo que permita modificar un usuario manager en funcion de su id
     @classmethod

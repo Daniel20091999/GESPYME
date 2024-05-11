@@ -209,20 +209,25 @@ class Proyecto:
         if len(cls.lista_proyectos) == 0:
             print("No hay proyectos")
         else:
-            id_a_eliminar = str("Introduce el id del proyecto a eliminar: ")
-            for proyecto in cls.lista_proyectos:
-                if proyecto.id_proyecto == id_a_eliminar:
-                    if cls.comprobar_tareas_proyecto(proyecto.id_proyecto) == True:
-                        print("El proyecto tiene tareas, no se puede eliminar")
-                    else:
-                        confirmar_eliminacion = str(input("¿estas seguro de que quiere eliminar el proyecto? (S/N): "))
-                        if confirmar_eliminacion.lower() == "s":
-                            #eliminamos el proyecto de la lista de proyectos
-                            cls.lista_proyectos.remove(proyecto)
-                            print("Proyecto eliminado")
+            id_a_eliminar = str("Introduce el id del proyecto a eliminar o cancelar para volver al menu: ")
+            if id_a_eliminar.lower() != "cancelar":
+                for proyecto in cls.lista_proyectos:
+                    if proyecto.id_proyecto == id_a_eliminar:
+                        if cls.comprobar_tareas_proyecto(proyecto.id_proyecto) == True:
+                            print("El proyecto tiene tareas, no se puede eliminar")
                         else:
-                            print("El proyecto no se ha eliminado correctamente")
-    
+                            confirmar_eliminacion = str(input("¿estas seguro de que quiere eliminar el proyecto? (S/N): "))
+                            if confirmar_eliminacion.lower() == "s":
+                                #eliminamos el proyecto de la lista de proyectos
+                                cls.lista_proyectos.remove(proyecto)
+                                print("Proyecto eliminado")
+                            else:
+                                print("El proyecto no se ha eliminado correctamente")
+                    else:
+                        print("El proyecto no existe")
+            else:
+                print("Volviendo al menu")
+        
     #definimos un metodo para editar un proyecto
     @classmethod
     def editar_proyecto(cls):

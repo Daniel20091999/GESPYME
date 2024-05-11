@@ -67,12 +67,17 @@ class Tarea:
         if len(cls.lista_tareas) == 0:
             print("No hay tareas para eliminar")
         else:
-            id_a_eliminar = str(input("Por favor introduce el ID de la tarea que desea eliminar: "))
-            for tareas in cls.lista_tareas:
-                if tareas.id_tarea == id_a_eliminar:
-                    cls.lista_tareas.remove(tareas)
-                    print("Tarea eliminada correctamente")
-                    
+            id_a_eliminar = str(input("Por favor introduce el ID de la tarea que desea eliminar o cancelar para volver al menu: "))
+            if id_a_eliminar.lower() != "cancelar":
+                for tareas in cls.lista_tareas:
+                    if tareas.id_tarea == id_a_eliminar:
+                        cls.lista_tareas.remove(tareas)
+                        print("Tarea eliminada correctamente")
+                    else:
+                        print("No existe ninguna tarea con ese ID")
+            else:
+                print("Volviendo al menu")
+                        
     #definimos un método para asignar un trabajador a la tarea
     @classmethod
     def asignar_trabajador_a_tarea(cls):
@@ -89,7 +94,7 @@ class Tarea:
                         while True:
                             print("Estos son los trabajadores existentes actualmente")
                             Worker_User.mostrar_workers()
-                            id_trabajador = str(input("Introduce el id del trabajador que quieres añadir a la tarea: "))
+                            id_trabajador = str(input("Introduce el id del trabajador que quieres añadir a la tarea o cancelar para volver al menu: "))
                             for trabajador in Worker_User.lista_workers:
                                 if trabajador.id_worker == id_trabajador:
                                     tarea.trabajadores.append(trabajador)
@@ -101,6 +106,11 @@ class Tarea:
                                         continue
                                     else:
                                         break
+                                elif id_trabajador.lower() == "cancelar":
+                                    print("Volviendo al menu")
+                                    break
+                                else:
+                                    print("No existe ese trabajador")
                             break
 
                                     
@@ -111,20 +121,27 @@ class Tarea:
             print("No existen tareas todavia")
         else:
             cls.mostrar_tareas()
-            id_tarea = str(input("Introduce el id de la tarea de la que quieres eliminar un trabajador: "))
-            for tarea in cls.lista_tareas:
-                if tarea.id_tarea == id_tarea:
-                    for worker in tarea.trabajadores:
-                        worker.mostrar_info_reducida_worker()
-                        id_trabajador_a_eliminar = str(input("introduce el id del trabajador que desea eliminar: "))
-                        for trabajador in tarea.trabajadores:
-                            trabajador.id_worker = id_trabajador_a_eliminar
-                            #reducimos el contador de tareas del trabajador en 1
-                            trabajador.contador_tareas_worker -= 1
-                            #eliminamos el trabajador de la lista de trabajadores de la tarea
-                            tarea.trabajadores.remove(trabajador)
-                            print("Trabajador eliminado correctamente")
-                        
+            id_tarea = str(input("Introduce el id de la tarea de la que quieres eliminar un trabajador ocancelar para volver: "))
+            if id_tarea.lower() != "cancelar":                
+                for tarea in cls.lista_tareas:
+                    if tarea.id_tarea == id_tarea:
+                        for worker in tarea.trabajadores:
+                            worker.mostrar_info_reducida_worker()
+                            id_trabajador_a_eliminar = str(input("introduce el id del trabajador que desea eliminar: "))
+                            for trabajador in tarea.trabajadores:
+                                trabajador.id_worker = id_trabajador_a_eliminar
+                                #reducimos el contador de tareas del trabajador en 1
+                                trabajador.contador_tareas_worker -= 1
+                                #eliminamos el trabajador de la lista de trabajadores de la tarea
+                                tarea.trabajadores.remove(trabajador)
+                                print("Trabajador eliminado correctamente")
+                                break
+                            break
+                    else:
+                        print("No existe una tarea con ese ID")
+            else:
+                print("Volviendo al menú")
+                           
     #definimos un método para modificar el estado de una tarea
     @classmethod
     def finalizar_tarea(cls, id_tarea):
@@ -134,16 +151,12 @@ class Tarea:
             cls.mostrar_tareas()
             for tarea in cls.lista_tareas:
                 if tarea.id_tarea == id_tarea:
-                    opcion = str(input("¿Ha finalizado la tarea? (S/N): "))
-                    if opcion.upper() == "S":
                         tarea.estado = True
                         #actualizamos la fecha fin por la de ahora
                         tarea.fecha_fin = dt.now()
                         #al finalizar la tarea calculamos el coste de la tarea
                         cls.calculo_coste_tarea(id_tarea)
                         print("Tarea finalizada correctamente")
-                    else:
-                        tarea.estado = False
 
     #definimos un método para calcular el coste de una tarea
     @classmethod
@@ -183,7 +196,7 @@ class Tarea:
             if tarea.id_tarea == id_tarea:
                 for worker in tarea.trabajadores:
                     worker.mostrar_info_reducida_worker()
-                
+            
     #definimos un método para modificar los datos de una tarea
     @classmethod
     def modificar_datos_tarea(cls):
@@ -279,4 +292,5 @@ class Tarea:
                             break
                         else:
                             print("opcion no valida")
-                        
+                else:
+                    print("No existe ninguna tarea con ese ID")
