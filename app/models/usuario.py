@@ -527,7 +527,6 @@ class Menu:
             cls.menu_final_administrador()
         else:
                 print("Opción no válida")
-            
       
     #Definimos una funcion que limpie la pantalla
     @classmethod
