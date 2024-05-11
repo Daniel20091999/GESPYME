@@ -40,24 +40,16 @@ class Administrador_User:
             print("Estos son los administradores actualmente")
             #Creamos un bucle para que el usuario pueda ver todos los administradores
             Administrador_User.mostrar_administradores()
-            while True:
-                id_a_borrar = str(input("Introduce el ID del administrador que desea eliminar o cancelar para volver al menú: "))
-                #Creamos un bucle para comprobar el id que deseamos eliminar
-                if id_a_borrar.lower() != "cancelar":
-                    for administrador in Administrador_User.lista_administradores:
-                        if administrador.id_administrador == id_a_borrar.upper():
-                            Administrador_User.lista_administradores.remove(administrador)
-                            print("El administrador " + str(administrador.nombre_administrador) + " ha sido eliminado correctamente")
-                            break
-                        else:
-                            print("No existe un administrador con el ID introducido")
-                            break
-                elif id_a_borrar.lower() == "cancelar":
-                    print("Volviendo al menú")
+            id_a_borrar = str(input("Introduce el ID del administrador que desea eliminar: "))
+            #Creamos un bucle para comprobar el id que deseamos eliminar
+            for administrador in Administrador_User.lista_administradores:
+                if administrador.id_administrador == id_a_borrar.upper():
+                    Administrador_User.lista_administradores.remove(administrador)
+                    print("El administrador " + str(administrador.nombre_administrador) + " ha sido eliminado correctamente")
                     break
                 else:
-                    print("Por favor introduzca una opción válida")
-                    
+                    print("No existe un administrador con el ID introducido")
+                    break
 
     #Definimos un metodo para añadir un nuevo administrador
     @classmethod

@@ -200,5 +200,5 @@ class Worker_User:
 
 
 #definimos un manager nuevo y lo añadimos a la lista
-worker1 =  Worker_User("UW1","Jose", "Garcia", "Perez", 123456789, "jose@gmail.com",40 ,8.50,0,"Programador",0)
+worker1 =  Worker_User("UW1","Jose", "Garcia", "Muñoz", 123456789, "jose@gmail.com",40 ,8.50,0,"Programador",0)
 Worker_User.lista_workers.append(worker1)
