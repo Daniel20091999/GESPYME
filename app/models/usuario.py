@@ -149,8 +149,8 @@ class Usuario:
                         break
                 else:
                     print("La contraseña es incorrecta")
-            else:
-                print("El usuario no existe")
+            #else:
+                #print("El usuario no existe")
      
 
     #definimos una funcion para asigar un worker user a un usuario
@@ -492,5 +492,9 @@ class Menu:
         os.system('cls' if os.name=='nt' else 'clear')
         
     #definimos un objeto de tipo usuario y lo añadimos a la lista
-    usuario1 = Usuario("U1", "daniel", "daniel", "administrador","U1")
-    Usuario.lista_usuarios.append(usuario1)  
+    usuario1 = Usuario("U1", "admin", "admin", "administrador","U1")
+    usuario2 = Usuario("U2", "manager", "manager", "manager","UM1")
+    usuario3 = Usuario("U3", "worker", "worker", "worker","UW1")
+    Usuario.lista_usuarios.append(usuario1)
+    Usuario.lista_usuarios.append(usuario2)
+    Usuario.lista_usuarios.append(usuario3)  
