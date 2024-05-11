@@ -193,7 +193,9 @@ class Manager_User:
                                 break
                         elif dato_a_modificar == 9:
                             print("Cancelando")
-                            break     
+                            break
+                        else:
+                            print("Opción no válida")     
 
     
 #definimos un manager nuevo y lo añadimos a la lista

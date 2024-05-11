@@ -127,6 +127,8 @@ class Usuario:
                         elif dato_a_modificar == 3:
                             print("Cancelando")
                             break
+                        else:
+                            print("Opción no válida")
     
     #Definimos un metodo para que el usuario inicie sesión
     @classmethod
@@ -288,6 +290,8 @@ class Menu:
                 cls.limpiar_pantalla()
                 print("Hasta luego")
                 break
+            else:
+                print("Opción no válida")
                 
     
     #definimos el menú final de los administradores
@@ -313,6 +317,8 @@ class Menu:
                 print("Cerrando sesión")
                 cls.menu_principal()
                 break
+            else:
+                print("Opción no válida")
     
     #definimos el menú final del usuario manager
     @classmethod
@@ -336,7 +342,9 @@ class Menu:
                 cls.limpiar_pantalla()
                 print("Cerrando sesión")
                 cls.menu_principal()
-                break                   
+                break
+            else:
+                print("Opción no válida")                   
 
     #Definimos el menú final de un worker
     @classmethod
@@ -352,6 +360,8 @@ class Menu:
                 cls.limpiar_pantalla()
                 print("Hasta luego")
                 break
+            else:
+                print("Opción no válida")
     
     #definimos un menu para la gestion de trabajadores de los managers
     @classmethod
@@ -383,6 +393,8 @@ class Menu:
             cls.limpiar_pantalla()
             print("Volviendo al menu principal")
             cls.menu_final_manager()
+        else:
+                print("Opción no válida")
     
     #definimos un menu para gestionar los managers siendo un administrador
     @classmethod
@@ -414,6 +426,8 @@ class Menu:
             cls.limpiar_pantalla()
             print("Volviendo al menu principal")
             cls.menu_final_administrador()
+        else:
+                print("Opción no válida")
     
     #definimos un menu para gestionar las tareas siendo manager
     @classmethod
@@ -449,6 +463,8 @@ class Menu:
             cls.limpiar_pantalla()
             print("Volviendo al menu principal")
             cls.menu_final_manager()
+        else:
+                print("Opción no válida")
     
     #definimos un menu para gestionar los proyectos siendo un manager
     @classmethod
@@ -472,6 +488,8 @@ class Menu:
             cls.limpiar_pantalla()
             print("Volviendo al menu principal")
             cls.menu_final_manager()
+        else:
+                print("Opción no válida")
         
     #definimos un menu para las gestiones de un administrador
     @classmethod
@@ -507,6 +525,8 @@ class Menu:
             cls.limpiar_pantalla()
             print("Volviendo al menu principal")
             cls.menu_final_administrador()
+        else:
+                print("Opción no válida")
             
       
     #Definimos una funcion que limpie la pantalla

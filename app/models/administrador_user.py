@@ -149,6 +149,9 @@ class Administrador_User:
                         elif dato_a_modificar == 6:
                             print("Cancelando")
                             break
+                        else:
+                            print("Opción no válida")
+                            
 #definimos un administrador nuevo y lo añadimos a la lista
 administrador1 =  Administrador_User("UA1","Daniel", "Garcia", "Muñoz", 123456789, "daniel@gmail.com")
 Administrador_User.lista_administradores.append(administrador1)

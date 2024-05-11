@@ -290,6 +290,8 @@ class Proyecto:
                     elif opcion == 5:
                         print("Cancelando")
                         break
+                    else:
+                        print("Opción no válida")
       
       
       
