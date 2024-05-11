@@ -167,7 +167,9 @@ class Usuario:
                     print("Ese usuario ya a sido asignado a un worker, por favor seleccione otro ID")
                 else: 
                     usuario.id_empleado = id_empleado_seleccionado
-                    print("El usuario ha sido asignado correctamente")  
+                    print("El usuario ha sido asignado correctamente")
+            else:
+                print("No hay usuarios de tipo worker que no tengan un worker asignado")
         
     #definimos una funcion para asigar un worker user a un usuario
     @classmethod
@@ -183,7 +185,9 @@ class Usuario:
                     print("Ese usuario ya a sido asignado a un manager, por favor seleccione otro ID")
                 else: 
                     usuario.id_empleado = id_empleado_seleccionado
-                    print("El usuario ha sido asignado correctamente")        
+                    print("El usuario ha sido asignado correctamente")
+            else:
+                print("No hay usuarios de tipo manager que no tengan un manager asignado")
     
     #definimos una funcion para asigar un administrador user a un usuario
     @classmethod
@@ -199,7 +203,9 @@ class Usuario:
                     print("Ese usuario ya a sido asignado a un administrador, por favor seleccione otro ID")
                 else: 
                     usuario.id_empleado = id_empleado_seleccionado
-                    print("El usuario ha sido asignado correctamente")     
+                    print("El usuario ha sido asignado correctamente")
+            else:
+                print("No hay usuarios de tipo administrador que no tengan un administrador asignado")
 
     #definimos un metodo para saber si el id_empleado ya está en uso
     @classmethod
