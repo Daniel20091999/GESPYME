@@ -15,12 +15,10 @@ class Proyecto:
     lista_proyectos = []
     
     #definimos un método para mostrar la información básica de los proyectos
-    @classmethod
     def mostrar_info_basica_proyecto(self):
         print(f"ID: {self.id_proyecto}\nNombre: {self.nombre_proyecto}")
     
     #definimos un metodo para mostrar toda la informacion de un proyecto
-    @classmethod
     def mostrar_info_completa_proyecto(self):
         print(f"ID: {self.id_proyecto}\nNombre: {self.nombre_proyecto}\nManager: {self.manager_proyecto}")
         print(f"\nTrabajadores: {self.empleados}\nTareas: {self.tareas}")
@@ -166,14 +164,14 @@ class Proyecto:
      #definimos un metodo para crear un nuevo proyecto
     @classmethod
     def crear_proyecto(cls):
+        #creamos la lista de empleados del proyecto vacia
+        empleados = []
+        #creamos la lista de tareas del proyecto vacia
+        tareas = []
         if len(cls.lista_proyectos) == 0:
            numero_proyecto = 1
            id_proyecto = "P" + str(numero_proyecto)
         else:
-            #creamos la lista de empleados del proyecto vacia
-            empleados = []
-            #creamos la lista de tareas del proyecto vacia
-            tareas = []
             numero_proyecto = len(cls.lista_proyectos) +1
             id_proyecto = "P" + str(numero_proyecto)
         nombre_proyecto = str(input("Introduce el nombre del proyecto: "))
@@ -187,21 +185,25 @@ class Proyecto:
                 if manager.id_manager == id_manager:
                     #aumentamos el contador de proyectos del trabajador
                     manager.contador_proyectos_manager += 1
-                    print("Lista de trabajadores: ")
-                    Worker_User.mostrar_workers()
-                    while True:
-                        id_worker = input("Ingrese el ID del trabajador que desea añadir: ")
-                        for worker in Worker_User.lista_workers:
-                            if worker.id_worker == id_worker:
-                                empleados.append(worker)
-                                print("Trabajador asignado correctamente a la tarea")
-                                #aumentamos el contador de proyectos del trabajador
-                                worker.contador_proyectos_worker += 1
-                                opcion = input("¿Desea añadir otro trabajador? (s/n): ")
-                                if opcion.lower() == "n":
-                                    break
-                #creamos el objeto proyecto
-            proyecto = Proyecto(id_proyecto, nombre_proyecto, manager,empleados, tareas)
+            print("Lista de trabajadores: ")
+            Worker_User.mostrar_workers()
+            while True:
+                id_worker = input("Ingrese el ID del trabajador que desea añadir: ")
+                for worker in Worker_User.lista_workers:
+                    if worker.id_worker == id_worker:
+                        empleados.append(worker)
+                        print("Trabajador asignado correctamente al proyecto")
+                        #aumentamos el contador de proyectos del trabajador
+                        worker.contador_proyectos_worker += 1
+                        opcion = input("¿Desea añadir otro trabajador? (s/n): ")
+                        if opcion.lower() == "n":
+                            break
+                break           
+        #creamos el objeto proyecto
+        proyecto = Proyecto(id_proyecto, nombre_proyecto, manager,empleados, tareas)
+        #añadimos el proyecto a la lista de proyectos
+        cls.lista_proyectos.append(proyecto)
+        print("Proyecto creado correctamente")
                                     
     #definimos un método para eliminar un proyecto en funcion de su ID
     @classmethod
@@ -236,7 +238,7 @@ class Proyecto:
         else:
             print("Proyectos actuales")
             cls.mostrar_proyectos()
-            id_a_modificar = str("Introduce el ID del Proyecto que quieres modificar: ")
+            id_a_modificar = str(input("Introduce el ID del Proyecto que quieres modificar: "))
             for proyecto in cls.lista_proyectos:
                 if proyecto.id_proyecto == id_a_modificar:
                     proyecto.mostrar_info_completa_proyecto()

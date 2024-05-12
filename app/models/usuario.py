@@ -151,8 +151,6 @@ class Usuario:
                         break
                 else:
                     print("La contraseña es incorrecta")
-            else:
-                print("El usuario no existe")
      
 
     #definimos una funcion para asigar un worker user a un usuario
@@ -503,8 +501,9 @@ class Menu:
         print("Menu gestion de proyectos")
         print("-. 1 Crear proyecto")
         print("-. 2 Eliminar un proyecto")
-        print("-. 3 Modificar datos de un proyecto")
-        print("-. 4 Volver al menu principal")
+        print("-. 3 Mostrar proyectos existentes")
+        print("-. 4 Modificar datos de un proyecto")
+        print("-. 5 Volver al menu principal")
         opcion = int(input("¿Que quieres hacer?: "))
         if opcion == 1:
             cls.limpiar_pantalla()
@@ -514,8 +513,11 @@ class Menu:
             Proyecto.eliminar_proyecto()
         elif opcion == 3:
             cls.limpiar_pantalla()
-            Proyecto.editar_proyecto()
+            Proyecto.mostrar_proyectos()
         elif opcion == 4:
+            cls.limpiar_pantalla()
+            Proyecto.editar_proyecto()
+        elif opcion == 5:
             cls.limpiar_pantalla()
             print("Volviendo al menu principal")
             cls.menu_final_manager()
