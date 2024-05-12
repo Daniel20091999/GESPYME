@@ -158,56 +158,85 @@ class Usuario:
     #definimos una funcion para asigar un worker user a un usuario
     @classmethod
     def asignar_worker_usuario(cls):
+        usuarios_sin_inicio_de_sesion = []
+        usuarios_con_inicio_de_sesion = []
+        
         for usuario in Usuario.lista_usuarios:
             if usuario.id_empleado == "" and usuario.tipo_usuario == "worker":
-                print("Estos son los usuarios de tipo worker que no tienen un worker asignado asignado")
-                usuario.mostrar_datos_usuarios()
-                print("Estos son los workers existentes actualmente")
-                Worker_User.mostrar_workers()
-                id_empleado_seleccionado = str(input("Por favor escribe el ID del administrador que tendrá asignado a este usuario: "))
-                if Usuario.comprobar_id_empleado(id_empleado_seleccionado == False):
-                    print("Ese usuario ya a sido asignado a un worker, por favor seleccione otro ID")
-                else: 
-                    usuario.id_empleado = id_empleado_seleccionado
-                    print("El usuario ha sido asignado correctamente")
-            else:
-                print("No hay usuarios de tipo worker que no tengan un worker asignado")
+                usuarios_sin_inicio_de_sesion.append(usuario)
+            elif usuario.id_empleado != "" and usuario.tipo_usuario == "worker":
+                usuarios_con_inicio_de_sesion.append(usuario)
+        if len(usuarios_con_inicio_de_sesion) == len(usuarios_sin_inicio_de_sesion):
+            print("Todos los usuarios de tipo worker ya tienen un worker asignado")
+        else:
+            print("Estos son los usuarios de tipo worker que no tienen un manager asignado asignado")
+            for usuario in usuarios_sin_inicio_de_sesion:
+                usuario.mostrar_datos_usuario()
+            print("Estos son los workers existentes actualmente")
+            Worker_User.mostrar_workers()
+            id_empleado_seleccionado = str(input("Por favor escribe el ID del worker que tendrá asignado a este usuario: "))
+            if Usuario.comprobar_id_empleado(id_empleado_seleccionado) == False:
+                print("Ese usuario ya a sido asignado a un worker, por favor seleccione otro ID")
+            else: 
+                usuario.id_empleado = id_empleado_seleccionado
+                print("El usuario ha sido asignado correctamente")
         
-    #definimos una funcion para asigar un worker user a un usuario
+    #definimos una funcion para asigar un manager user a un usuario
     @classmethod
     def asignar_manager_usuario(cls):
+        usuarios_sin_inicio_de_sesion = []
+        usuarios_con_inicio_de_sesion = []
+        
         for usuario in Usuario.lista_usuarios:
             if usuario.id_empleado == "" and usuario.tipo_usuario == "manager":
-                print("Estos son los usuarios de tipo manager que no tienen un manager asignado asignado")
+                usuarios_sin_inicio_de_sesion.append(usuario)
+            elif usuario.id_empleado != "" and usuario.tipo_usuario == "manager":
+                usuarios_con_inicio_de_sesion.append(usuario)
+        if len(usuarios_con_inicio_de_sesion) == len(usuarios_sin_inicio_de_sesion):
+            print("Todos los usuarios de tipo manager ya tienen un manager asignado")
+        else:
+            print("Estos son los usuarios de tipo manager que no tienen un manager asignado asignado")
+            for usuario in usuarios_sin_inicio_de_sesion:
                 usuario.mostrar_datos_usuario()
-                print("Estos son los managers existentes actualmente")
-                Manager_User.mostrar_managers()
-                id_empleado_seleccionado = str(input("Por favor escribe el ID del manager que tendrá asignado a este usuario: "))
-                if Usuario.comprobar_id_empleado(id_empleado_seleccionado):
-                    print("Ese usuario ya a sido asignado a un manager, por favor seleccione otro ID")
-                else: 
-                    usuario.id_empleado = id_empleado_seleccionado
-                    print("El usuario ha sido asignado correctamente")
-            else:
-                print("No hay usuarios de tipo manager que no tengan un manager asignado")
+            print("Estos son los managers existentes actualmente")
+            Manager_User.mostrar_managers()
+            id_empleado_seleccionado = str(input("Por favor escribe el ID del manager que tendrá asignado a este usuario: "))
+            if Usuario.comprobar_id_empleado(id_empleado_seleccionado) == False:
+                print("Ese usuario ya a sido asignado a un manager, por favor seleccione otro ID")
+            else: 
+                usuario.id_empleado = id_empleado_seleccionado
+                print("El usuario ha sido asignado correctamente")
+                
+                    
+
+
     
     #definimos una funcion para asigar un administrador user a un usuario
     @classmethod
-    def asignar_admin_usuario(cls):
+    def asignar_administrador_usuario(cls):
+        usuarios_sin_inicio_de_sesion = []
+        usuarios_con_inicio_de_sesion = []
+        
         for usuario in Usuario.lista_usuarios:
             if usuario.id_empleado == "" and usuario.tipo_usuario == "administrador":
-                print("Estos son los usuarios de tipo administrador que no tienen un administrador asignado asignado")
-                usuario.mostrar_datos_usuarios()
-                print("Estos son los administradores existentes actualmente")
-                Administrador_User.mostrar_administradores()
-                id_empleado_seleccionado = str(input("Por favor escribe el ID del administrador que tendrá asignado a este usuario: "))
-                if Usuario.comprobar_id_empleado(id_empleado_seleccionado == False):
-                    print("Ese usuario ya a sido asignado a un administrador, por favor seleccione otro ID")
-                else: 
-                    usuario.id_empleado = id_empleado_seleccionado
-                    print("El usuario ha sido asignado correctamente")
-            else:
-                print("No hay usuarios de tipo administrador que no tengan un administrador asignado")
+                usuarios_sin_inicio_de_sesion.append(usuario)
+            elif usuario.id_empleado != "" and usuario.tipo_usuario == "administrador":
+                usuarios_con_inicio_de_sesion.append(usuario)
+        if len(usuarios_con_inicio_de_sesion) == len(usuarios_sin_inicio_de_sesion):
+            print("Todos los usuarios de tipo administrador ya tienen un administrador asignado")
+        else:
+            print("Estos son los usuarios de tipo administrador que no tienen un administrador asignado asignado")
+            for usuario in usuarios_sin_inicio_de_sesion:
+                usuario.mostrar_datos_usuario()
+            print("Estos son los administradores existentes actualmente")
+            Administrador_User.mostrar_administradores()
+            id_empleado_seleccionado = str(input("Por favor escribe el ID del administrador que tendrá asignado a este usuario: "))
+            if Usuario.comprobar_id_empleado(id_empleado_seleccionado) == False:
+                print("Ese usuario ya a sido asignado a un administrador, por favor seleccione otro ID")
+            else: 
+                usuario.id_empleado = id_empleado_seleccionado
+                print("El usuario ha sido asignado correctamente")
+
 
     #definimos un metodo para saber si el id_empleado ya está en uso
     @classmethod
@@ -215,6 +244,8 @@ class Usuario:
         for usuario in Usuario.lista_usuarios:
             if usuario.id_empleado == id_empleado:
                 return True
+            else:
+                return False
             
             
     
