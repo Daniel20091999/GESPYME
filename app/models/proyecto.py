@@ -20,8 +20,10 @@ class Proyecto:
     
     #definimos un metodo para mostrar toda la informacion de un proyecto
     def mostrar_info_completa_proyecto(self):
-        print(f"ID: {self.id_proyecto}\nNombre: {self.nombre_proyecto}\nManager: {self.manager_proyecto}")
-        print(f"\nTrabajadores: {self.empleados}\nTareas: {self.tareas}")
+        print(f"ID: {self.id_proyecto}")
+        print(f"Nombre: {self.nombre_proyecto}")
+        print(f"Manager: {self.mostrar_manager_proyecto(self.id_proyecto)}")
+        print(f"\nTrabajadores: {self.mostrar_trabajadores_proyecto(self.id_proyecto)}\nTareas: {self.mostrar_tareas_proyecto(self.id_proyecto)}")
     
     #definimos un metodo para ostrar todos los proyectos
     @classmethod
@@ -106,8 +108,7 @@ class Proyecto:
                             proyecto.manager_proyecto = manager
                             #aumentamos el contador de proyectos del trabajador
                             manager.contador_proyectos_manager += 1
-                            proyecto.manager_proyecto = None
-                            print("Manager asignado correctamente")                      
+                            proyecto.manager_proyecto = None                   
         
     #definimos un metodo para asignar una tarea a un proyecto
     @classmethod
@@ -200,7 +201,7 @@ class Proyecto:
                             break
                 break           
         #creamos el objeto proyecto
-        proyecto = Proyecto(id_proyecto, nombre_proyecto, manager,empleados, tareas)
+        proyecto = Proyecto(id_proyecto, nombre_proyecto, manager, empleados, tareas)
         #añadimos el proyecto a la lista de proyectos
         cls.lista_proyectos.append(proyecto)
         print("Proyecto creado correctamente")
@@ -248,7 +249,7 @@ class Proyecto:
                     print("-. 3 Trabajadores")
                     print("-. 4 Tareas")
                     print("-. 5 Cancelar")
-                    opcion = int("que quieres modificar (1-5): ")
+                    opcion = int(input("que quieres modificar (1-5): "))
                     if opcion == 1:
                         nuevo_nombre = str("Introduce el nuevo nombre del proyecto: ")
                         if proyecto.comprobar_nombre_proyecto(nuevo_nombre) == True:
@@ -256,10 +257,10 @@ class Proyecto:
                         else:
                             proyecto.nombre_proyecto = nuevo_nombre
                     elif opcion == 2:
-                        if proyecto.manager == None:
+                        if proyecto.manager_proyecto != None:
                             proyecto.desasignar_manager_a_proyecto(id_a_modificar)
                         else:
-                            proyecto.desasignar_manager_a_proyecto(id_a_modificar)
+                            proyecto.asignar_manager_a_proyecto(id_a_modificar)
                     elif opcion == 3:
                         if len(proyecto.trabajadores) == 0:
                             print("No hay trabajadores en este proyecto")
@@ -305,16 +306,27 @@ class Proyecto:
     #definimos un metodo para mostrar los trabajadores de un proyecto
     @classmethod
     def mostrar_trabajadores_proyecto(cls, id_proyecto):
+        print("Los trabajadores asignados al proyecto son: ")
         for proyecto in cls.lista_proyectos:
             if proyecto.id_proyecto == id_proyecto:
-                print(proyecto.trabajadores)
+                for worker in proyecto.empleados:
+                    worker.mostrar_info_reducida_worker()
      
     #definimos un metodo para mostrar las tareas de un proyecto
     @classmethod
     def mostrar_tareas_proyecto(cls, id_proyecto):
+        print("Los trabajadores asignados al proyecto son: ")
         for proyecto in cls.lista_proyectos:
             if proyecto.id_proyecto == id_proyecto:
-                print(proyecto.tareas)
+                for tarea in proyecto.tareas:
+                    tarea.mostrar_informacion_basica_tarea()
+                    
+    #definimos un metodo para mostrar el manager de un proyecto
+    @classmethod
+    def mostrar_manager_proyecto(cls, id_proyecto):
+        for proyecto in cls.lista_proyectos:
+            if proyecto.id_proyecto == id_proyecto:
+                    proyecto.manager_proyecto.mostrar_info_reducida_manager()
       
     #definimos un metodo para comprobar si el nombre del proyecto ya existe
     @classmethod
@@ -330,3 +342,5 @@ class Proyecto:
             if proyecto.id_proyecto == id_proyecto:
                 if len(proyecto.tareas) == 0:
                     return True
+                else:
+                    return False
