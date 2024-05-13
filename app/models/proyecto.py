@@ -22,8 +22,12 @@ class Proyecto:
     def mostrar_info_completa_proyecto(self):
         print(f"ID: {self.id_proyecto}")
         print(f"Nombre: {self.nombre_proyecto}")
-        print(f"Manager: {self.mostrar_manager_proyecto(self.id_proyecto)}")
-        print(f"\nTrabajadores: {self.mostrar_trabajadores_proyecto(self.id_proyecto)}\nTareas: {self.mostrar_tareas_proyecto(self.id_proyecto)}")
+        print(f"Manager: \t")
+        self.mostrar_manager_proyecto(self.id_proyecto)
+        print(f"\nTrabajadores: \t")
+        self.mostrar_trabajadores_proyecto(self.id_proyecto)
+        print(f"Tareas:  \t") 
+        self.mostrar_tareas_proyecto(self.id_proyecto)
     
     #definimos un metodo para ostrar todos los proyectos
     @classmethod
@@ -254,17 +258,38 @@ class Proyecto:
                         nuevo_nombre = str("Introduce el nuevo nombre del proyecto: ")
                         if proyecto.comprobar_nombre_proyecto(nuevo_nombre) == True:
                             print("El nombre del proyecto ya existe")
+                            #si el nombre del proyecto no existe, se cambia el nombre
                         else:
                             proyecto.nombre_proyecto = nuevo_nombre
+                            opcion = str(input("Desea modificar algun otro dato? (S/N)"))
+                            if opcion.upper() == "S":
+                                continue
+                            elif opcion.upper() == "N":
+                                break
                     elif opcion == 2:
                         if proyecto.manager_proyecto != None:
                             proyecto.desasignar_manager_a_proyecto(id_a_modificar)
+                            opcion = str(input("Desea modificar algun otro dato? (S/N)"))
+                            if opcion.upper() == "S":
+                                continue
+                            elif opcion.upper() == "N":
+                                break
                         else:
                             proyecto.asignar_manager_a_proyecto(id_a_modificar)
+                            opcion = str(input("Desea modificar algun otro dato? (S/N)"))
+                            if opcion.upper() == "S":
+                                continue
+                            elif opcion.upper() == "N":
+                                break
                     elif opcion == 3:
                         if len(proyecto.trabajadores) == 0:
                             print("No hay trabajadores en este proyecto")
                             proyecto.agregar_empleado_a_proyecto(id_a_modificar)
+                            opcion = str(input("Desea modificar algun otro dato? (S/N)"))
+                            if opcion.upper() == "S":
+                                continue
+                            elif opcion.upper() == "N":
+                                break
                         else:
                             proyecto.mostrar_trabajadores_proyecto()
                             print("-. 1 Agrgar trabajador")
@@ -282,6 +307,7 @@ class Proyecto:
                         if len(proyecto.tareas) == 0:
                             print("No hay tareas en este proyecto")
                             proyecto.asignar_tarea_a_proyecto(id_a_modificar)
+                            break
                         else:
                             proyecto.mostrar_tareas_proyecto()
                             print("-. 1 Agrgar Tarea")
@@ -315,7 +341,7 @@ class Proyecto:
     #definimos un metodo para mostrar las tareas de un proyecto
     @classmethod
     def mostrar_tareas_proyecto(cls, id_proyecto):
-        print("Los trabajadores asignados al proyecto son: ")
+        print("Las tareas asignados al proyecto son: ")
         for proyecto in cls.lista_proyectos:
             if proyecto.id_proyecto == id_proyecto:
                 for tarea in proyecto.tareas:
