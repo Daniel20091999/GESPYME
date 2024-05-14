@@ -178,10 +178,13 @@ class Tarea:
     
     #definimos un método para mostrar las tareas de un trabajador
     @classmethod
-    def mostrar_tareas_trabajador(cls, id_trabajador):
+    def mostrar_tareas_trabajador(cls):
+        print("Estos son los trabajadores que se encuentran actualmente en el sistema")
+        Worker_User.mostrar_workers()
+        id_a_buscar = str(input("Introduce el ID del worker el cual se quieren mostrar las tareas: "))
         print("Tus tareas son las siguientes")
         for trabajador in Worker_User.lista_workers:
-            if trabajador.id_worker == id_trabajador:
+            if trabajador.id_worker == id_a_buscar:
                 for tarea in cls.lista_tareas:
                     if tarea.trabajadores == trabajador.id_worker:
                         tarea.mostrar_informacion_basica_tarea()
