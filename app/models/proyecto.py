@@ -183,34 +183,43 @@ class Proyecto:
         if cls.comprobar_nombre_proyecto(nombre_proyecto) == True:
             print("El nombre del proyecto ya existe")
         else:
-            print("Lista de managers: ")
-            Manager_User.mostrar_managers()
-            id_manager = input("Ingrese el ID del manager que desea asignar al proyecto: ")
-            for manager in Manager_User.lista_managers:
-                if manager.id_manager == id_manager:
-                    #aumentamos el contador de proyectos del trabajador
-                    manager.contador_proyectos_manager += 1
-            print("Lista de trabajadores: ")
-            if len(Worker_User.lista_workers) == 0:
-                opcion = str(input("No hay trabajadores, desea añadir uno? (S/N): " ))
+            if len(Manager_User.lista_managers) == 0:
+                opcion = str(input("No existe ningun manager, desea crear uno? (S/N): "))
                 if opcion.upper() == "S":
-                    Worker_User.añadir_worker()
+                    Manager_User.añadir_manager()
+                    cls.asignar_manager_a_proyecto(id_proyecto)
                 elif opcion.upper() == "N":
-                    print("No se ha añadido ningún trabajador al proyecto")
+                    print("No se asignará ningún manager al proyecto")
             else:
-                Worker_User.mostrar_workers()
-                while True:
-                    id_worker = input("Ingrese el ID del trabajador que desea añadir: ")
-                    for worker in Worker_User.lista_workers:
-                        if worker.id_worker == id_worker:
-                            empleados.append(worker)
-                            print("Trabajador asignado correctamente al proyecto")
-                            #aumentamos el contador de proyectos del trabajador
-                            worker.contador_proyectos_worker += 1
-                            opcion = input("¿Desea añadir otro trabajador? (s/n): ")
-                            if opcion.lower() == "n":
-                                break
-                    break           
+                print("Lista de managers: ")
+                Manager_User.mostrar_managers()
+                id_manager = input("Ingrese el ID del manager que desea asignar al proyecto: ")
+                for manager in Manager_User.lista_managers:
+                    if manager.id_manager == id_manager:
+                        #aumentamos el contador de proyectos del trabajador
+                        manager.contador_proyectos_manager += 1
+                print("Lista de trabajadores: ")
+                if len(Worker_User.lista_workers) == 0:
+                    opcion = str(input("No hay trabajadores, desea añadir uno? (S/N): " ))
+                    if opcion.upper() == "S":
+                        Worker_User.añadir_worker()
+                        cls.agregar_empleado_a_proyecto(id_proyecto)
+                    elif opcion.upper() == "N":
+                        print("No se ha añadido ningún trabajador al proyecto")
+                else:
+                    Worker_User.mostrar_workers()
+                    while True:
+                        id_worker = input("Ingrese el ID del trabajador que desea añadir: ")
+                        for worker in Worker_User.lista_workers:
+                            if worker.id_worker == id_worker:
+                                empleados.append(worker)
+                                print("Trabajador asignado correctamente al proyecto")
+                                #aumentamos el contador de proyectos del trabajador
+                                worker.contador_proyectos_worker += 1
+                                opcion = input("¿Desea añadir otro trabajador? (s/n): ")
+                                if opcion.lower() == "n":
+                                    break
+                        break           
         #creamos el objeto proyecto
         proyecto = Proyecto(id_proyecto, nombre_proyecto, manager, empleados, tareas)
         #añadimos el proyecto a la lista de proyectos
