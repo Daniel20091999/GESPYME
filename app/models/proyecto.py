@@ -191,19 +191,26 @@ class Proyecto:
                     #aumentamos el contador de proyectos del trabajador
                     manager.contador_proyectos_manager += 1
             print("Lista de trabajadores: ")
-            Worker_User.mostrar_workers()
-            while True:
-                id_worker = input("Ingrese el ID del trabajador que desea añadir: ")
-                for worker in Worker_User.lista_workers:
-                    if worker.id_worker == id_worker:
-                        empleados.append(worker)
-                        print("Trabajador asignado correctamente al proyecto")
-                        #aumentamos el contador de proyectos del trabajador
-                        worker.contador_proyectos_worker += 1
-                        opcion = input("¿Desea añadir otro trabajador? (s/n): ")
-                        if opcion.lower() == "n":
-                            break
-                break           
+            if len(Worker_User.lista_workers) == 0:
+                opcion = str(input("No hay trabajadores, desea añadir uno? (S/N)": ))
+                if opcion.upper() == "S":
+                    Worker_User.añadir_worker()
+                elif opcion.upper() == "N":
+                    print("No se ha añadido ningún trabajador al proyecto")
+            else:
+                Worker_User.mostrar_workers()
+                while True:
+                    id_worker = input("Ingrese el ID del trabajador que desea añadir: ")
+                    for worker in Worker_User.lista_workers:
+                        if worker.id_worker == id_worker:
+                            empleados.append(worker)
+                            print("Trabajador asignado correctamente al proyecto")
+                            #aumentamos el contador de proyectos del trabajador
+                            worker.contador_proyectos_worker += 1
+                            opcion = input("¿Desea añadir otro trabajador? (s/n): ")
+                            if opcion.lower() == "n":
+                                break
+                    break           
         #creamos el objeto proyecto
         proyecto = Proyecto(id_proyecto, nombre_proyecto, manager, empleados, tareas)
         #añadimos el proyecto a la lista de proyectos
