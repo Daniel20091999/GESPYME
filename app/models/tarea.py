@@ -118,7 +118,7 @@ class Tarea:
     @classmethod
     def eliminar_trabajador_de_tarea(cls):
         if len(cls.lista_tareas) == 0:
-            print("No existen tareas todavia")
+            print("No existen  todavia")
         else:
             cls.mostrar_tareas()
             id_tarea = str(input("Introduce el id de la tarea de la que quieres eliminar un trabajador ocancelar para volver: "))

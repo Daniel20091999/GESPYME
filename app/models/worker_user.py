@@ -81,7 +81,7 @@ class Worker_User:
             print("Estos son los trabajadores actualmente")
             #Creamos un bucle para que el usuario pueda ver todos los managers
             Worker_User.mostrar_info_reducida_worker()
-            id_a_borrar = str(input("Introduce el ID del manager que desea eliminar: "))
+            id_a_borrar = str(input("Introduce el ID del worker que desea eliminar: "))
             #Creamos un bucle para comprobar el id que deseamos eliminar
             for worker in Worker_User.lista_workers:
                 if worker.id_worker == id_a_borrar.upper():
