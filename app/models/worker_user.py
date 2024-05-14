@@ -19,14 +19,14 @@ class Worker_User:
     #Creamos una lista donde se guardarán los workers
     lista_workers = []
 
-    #definimos un metodo para mostrar la informacción de los managers
+    #definimos un metodo para mostrar la informacción de los worker
     
     def mostrar_info_ampliada_workers(self):
         print(f"ID: {self.id_worker} \nNombre: {self.nombre_worker} \nPrimer apellido : {self.apellido_1_worker} \nSegundo apellido: {self.apellido_2_worker}") 
         print(f"Telf: {self.telefono_worker} \nEmail: {self.email_worker} \nHoras semanales: {self.horas_semanales_worker} \nCoster hora: {self.coste_hora_worker}") 
         print(f"Tareas asignadas: {self.contador_tareas_worker} \nPuesto trabajo:  {self.puesto_trabajo_worker}\nNº Proyectos: {self.contador_proyectos_worker}")
     
-    #definimos un metodo para mostrar la informacción de los managers
+    #definimos un metodo para mostrar la informacción de los workers
     
     def mostrar_info_reducida_worker(self):
         print(f"ID: {self.id_worker} \n{self.nombre_worker} {self.apellido_1_worker} {self.apellido_2_worker}")
@@ -80,7 +80,7 @@ class Worker_User:
         else:
             print("Estos son los trabajadores actualmente")
             #Creamos un bucle para que el usuario pueda ver todos los managers
-            Worker_User.mostrar_info_reducida_worker()
+            Worker_User.mostrar_workers()
             id_a_borrar = str(input("Introduce el ID del worker que desea eliminar: "))
             #Creamos un bucle para comprobar el id que deseamos eliminar
             for worker in Worker_User.lista_workers:
