@@ -192,7 +192,7 @@ class Proyecto:
                     manager.contador_proyectos_manager += 1
             print("Lista de trabajadores: ")
             if len(Worker_User.lista_workers) == 0:
-                opcion = str(input("No hay trabajadores, desea añadir uno? (S/N)": ))
+                opcion = str(input("No hay trabajadores, desea añadir uno? (S/N): " ))
                 if opcion.upper() == "S":
                     Worker_User.añadir_worker()
                 elif opcion.upper() == "N":
