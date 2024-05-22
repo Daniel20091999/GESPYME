@@ -271,7 +271,7 @@ class Proyecto:
                     print("-. 5 Cancelar")
                     opcion = int(input("que quieres modificar (1-5): "))
                     if opcion == 1:
-                        nuevo_nombre = str("Introduce el nuevo nombre del proyecto: ")
+                        nuevo_nombre = str(input("Introduce el nuevo nombre del proyecto: "))
                         if proyecto.comprobar_nombre_proyecto(nuevo_nombre) == True:
                             print("El nombre del proyecto ya existe")
                             #si el nombre del proyecto no existe, se cambia el nombre
