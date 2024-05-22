@@ -1,4 +1,4 @@
-
+from usuario_iniciado import Usuario_iniciado
 class Administrador_User:
     #Definimos un método constructor
     def __init__(self, id_administrador : str, nombre_administrador : str, apellido_1_administrador : str , apellido_2_administrador : str , telefono_administrador : int,  email_administrador : str,):
@@ -41,18 +41,23 @@ class Administrador_User:
             #Creamos un bucle para que el usuario pueda ver todos los administradores
             Administrador_User.mostrar_administradores()
             id_a_borrar = str(input("Introduce el ID del administrador que desea eliminar o cancelar para volver al menu: "))
-            if id_a_borrar.lower() != "cancelar":
-                #Creamos un bucle para comprobar el id que deseamos eliminar
-                for administrador in Administrador_User.lista_administradores:
-                    if administrador.id_administrador == id_a_borrar.upper():
-                        Administrador_User.lista_administradores.remove(administrador)
-                        print("El administrador " + str(administrador.nombre_administrador) + " ha sido eliminado correctamente")
-                        break
-                    else:
-                        print("No existe un administrador con el ID introducido")
-                        break
-            else:
-                print("Volviendo al menu")
+            for usuario_iniciado in Usuario_iniciado.Usuario_iniciado:
+                if usuario_iniciado.id_usuario == id_a_borrar.upper():
+                    print("No puedes borrar el usuario con el que has iniciado sesión")
+                    break
+                elif id_a_borrar.lower() != "cancelar":
+                    #Creamos un bucle para comprobar el id que deseamos eliminar
+                    for administrador in Administrador_User.lista_administradores:
+                        if administrador.id_administrador == id_a_borrar.upper():
+                            Administrador_User.lista_administradores.remove(administrador)
+                            print("El administrador " + str(administrador.nombre_administrador) + " ha sido eliminado correctamente")
+                            break
+                        else:
+                            print("No existe un administrador con el ID introducido")
+                            break
+                else:
+                    print("Volviendo al menu")
+                    break
 
     #Definimos un metodo para añadir un nuevo administrador
     @classmethod

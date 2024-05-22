@@ -1,4 +1,5 @@
 import os
+from usuario_iniciado import Usuario_iniciado
 from administrador_user import Administrador_User
 from worker_user import Worker_User
 from manager_user import Manager_User
@@ -15,6 +16,7 @@ class Usuario:
 
     #Definimos una lista vacia donde se guradarán los datos de los usuarios
     lista_usuarios = []
+    
 
     #Definimos el metodo para mostrar la informacion de cada usuario
     def mostrar_datos_usuario(self):
@@ -139,6 +141,7 @@ class Usuario:
             if usuario.nombre_usuario == usuario_inicio_sesion:
                 contrasena_inicio_sesion = str(input("Introduce la contraseña: "))
                 if usuario.contrasena_usuario == contrasena_inicio_sesion:
+                    Usuario_iniciado.Usuario_iniciado.append(usuario)
                     print("Sesión iniciada correctamente")
                     if usuario.tipo_usuario == "administrador":
                         Menu.menu_final_administrador()

@@ -186,7 +186,7 @@ class Manager_User:
                             elif opcion.upper() == "N":
                                 break
                         elif dato_a_modificar == 8:
-                            nuevo_puesto_trabajo = float(input("¿Introduce el nuevo puesto de trabajo?: "))
+                            nuevo_puesto_trabajo = str(input("¿Introduce el nuevo puesto de trabajo?: "))
                             manager.puesto_trabajo_manager = nuevo_puesto_trabajo
                             print("El puesto de trabajo ha sido modificado correctamente")
                             opcion = str(input("Desea modificar algun otro dato? (S/N)"))

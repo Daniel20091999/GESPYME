@@ -1,6 +1,7 @@
 from datetime import datetime as dt
 from worker_user import Worker_User
 from manager_user import Manager_User
+from usuario_iniciado import Usuario_iniciado
 class Tarea:
     #definimos un metodo constructor
     def __init__(self, id_tarea : str, nombre_tarea : str, tiempo_estimado : int, fecha_inicio : dt, fecha_fin : dt,
@@ -186,8 +187,9 @@ class Tarea:
         for trabajador in Worker_User.lista_workers:
             if trabajador.id_worker == id_a_buscar:
                 for tarea in cls.lista_tareas:
-                    if tarea.trabajadores == trabajador.id_worker:
-                        tarea.mostrar_informacion_basica_tarea()
+                    for trabajador in  tarea.trabajadores:
+                        if trabajador.id_worker == id_a_buscar:
+                            tarea.mostrar_informacion_basica_tarea()
             else:
                 print("No tienes tareas asignadas")
 
